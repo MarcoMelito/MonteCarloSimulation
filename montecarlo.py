@@ -14,7 +14,7 @@ dt = t / N   # Defining time steps
 S = np.zeros((M, t*N+1)) # Creating an array (M rows, N+1 columns) to store stock prices and time steps
 S[:, 0] = S0 # Setting the initial stock price on day 0 of all paths to S0
 
-for i in range(1, t*N+1): # Loops over each time step (from 1 to N)
+for i in range(1, t*N+1): # Loops over each time step (from 1 to t*N)
     Z = np.random.standard_normal(M)  # Generating M random values using a standard normal distribution
     S[:, i] = S[:, i-1] * np.exp((mu - 0.5*v**2)*dt + v*np.sqrt(dt)*Z)
     # For the purpose of this project, I am using the Geometric Brownian Motion formula, which is often used to
@@ -23,11 +23,11 @@ for i in range(1, t*N+1): # Loops over each time step (from 1 to N)
     # random shock. The exponential function ensures the price stays positive
 
 df = pd.DataFrame(S) # Creating a data frame with the results obtained
-df.insert(0, "Path", range(1, M+1)) # Number each row
-df.to_csv("simulated_prices.csv", index=False) # Create a .csv file with all the information
+df.insert(0, "Path", range(1, M+1)) # Numbering each row
+df.to_csv("simulated_prices.csv", index=False) # Creating a .csv file with all the information
 
 for i in range(M):
-    plt.plot(df.columns[1:], df.iloc[i, 1:], label=f'Path {i+1}')
+    plt.plot(df.columns[1:], df.iloc[i, 1:], label=f'Path {i+1}') # Plotting each simulated path with its corresponding label
 plt.xlabel("Day")
 plt.ylabel("Price")
 plt.title("Simulated stock price paths")
