@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 
 S0 = 96      # Here goes the initial stock price
 mu = 0.03     # Yearly expected return. We assume an expected 5% yearly return
-v = 0.1       # Volatility (standard deviation)
+v = 0.1       # Volatility
 t = 3         # Time horizon (in years)
-N = 365       # Number of days in one year
+N = 365       # Number of time steps in one year
 M = 3        # Number of simulated paths
 dt = t / N   # Defining time steps
 
@@ -33,3 +33,4 @@ plt.ylabel("Price")
 plt.title("Simulated stock price paths")
 plt.legend()
 plt.show()
+
