@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 S0 = 96      # Here goes the initial stock price
-mu = 0.03     # Yearly expected return. We assume an expected 5% yearly return
+mu = 0.05     # Yearly expected return. We assume an expected 5% yearly return
 v = 0.1       # Volatility
 t = 3         # Time horizon (in years)
 N = 365       # Number of time steps in one year
@@ -33,4 +33,5 @@ plt.ylabel("Price")
 plt.title("Simulated stock price paths")
 plt.legend()
 plt.show()
+
 
